@@ -1,13 +1,14 @@
 import './App.css';
+import AgeCalculator from './components/AgeCalculator'
+import TopNav from './components/Navbar';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Age Calculator
-        </p>
-      </header>
+    <div className="">
+      <TopNav />
+      <AgeCalculator />
+      <Footer />
     </div>
   );
 }
