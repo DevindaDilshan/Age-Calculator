@@ -1,5 +1,5 @@
 import Button from 'react-bootstrap/Button';
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import Stack from 'react-bootstrap/Stack'
 
 const AgeCalculator = () => {
@@ -8,6 +8,16 @@ const AgeCalculator = () => {
     const [birthdate, setbirthdate] = useState('');
     const [age, setage] = useState(null);
     const [error, setError] = useState('');
+
+    useEffect(() => {
+        setTimeout(() => {
+          setage({
+            years: 0,
+            months: 0,
+            days: 0,
+        });
+        }, 0);
+      },[]);
 
     //function to calculate age
     const calculateAge = () => {
