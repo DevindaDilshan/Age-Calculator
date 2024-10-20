@@ -6,8 +6,13 @@ import Footer from './components/Footer';
 function App() {
   return (
     <div className="">
-      <TopNav />
-      <AgeCalculator />
+      <div
+        style={{
+          minHeight: "500px"
+        }}>
+        <TopNav />
+        <AgeCalculator />
+      </div>
       <Footer />
     </div>
   );
