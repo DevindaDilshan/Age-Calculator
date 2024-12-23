@@ -1,5 +1,5 @@
 import Button from 'react-bootstrap/Button';
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Stack from 'react-bootstrap/Stack'
 
 const AgeCalculator = () => {
@@ -11,13 +11,13 @@ const AgeCalculator = () => {
 
     useEffect(() => {
         setTimeout(() => {
-          setage({
-            years: 0,
-            months: 0,
-            days: 0,
-        });
+            setage({
+                years: 0,
+                months: 0,
+                days: 0,
+            });
         }, 0);
-      },[]);
+    }, []);
 
     //function to calculate age
     const calculateAge = () => {
@@ -63,67 +63,64 @@ const AgeCalculator = () => {
 
     return (
 
-        <div className='container-flex pt-4 pb-5 bg-light '>
+        <div className='container-fluid pt-5 pb-5 bg-light '>
             {/*<h1 className='md'>Age Calculator</h1>*/}
-            <Stack gap={3} className=' col-8 p-3 mx-auto'>
-                <div className="card p-3 col-12" >
-                    <div className='card-body'>
-                        <div className='row row-cols-auto text-center justify-content-center'>
-                            <div className='col'>
-                                <input
-                                    type='date'
-                                    value={birthdate}
+            <Stack gap={2} className='p-3 p-sm-4 mx-auto '>
+                <div className="card p-3 col-12  col-md-12 col-lg-10 col-xl-10 mx-auto" >
+                    <div className='card-body p-3'>
+                        <Stack gap={4} className='col-4 col-md-3 col-lg-3 col-xl-3  mx-auto'>
+                            <input
+                                type='date'
+                                value={birthdate}
 
-                                    onChange={(e) => {
-                                        //Ensure that the input value is no longer then 10 characters
-                                        if (e.target.value.length <= 10) {
-                                            setbirthdate(e.target.value);
-                                        }
-                                    }}
-                                    max="9999-12-31" //set the max allowed date
-                                    min="0000-01-01" //set the min allowed date
-                                />
-                            </div>
-                            <dic className='col'>
-                                {/* button to trigger age calculation function */}
-                                <Button variant='success' onClick={calculateAge}>Calculate</Button>
-                            </dic>
-                        </div>
+                                onChange={(e) => {
+                                    //Ensure that the input value is no longer then 10 characters
+                                    if (e.target.value.length <= 10) {
+                                        setbirthdate(e.target.value);
+                                    }
+                                }}
+                                max="9999-12-31" //set the max allowed date
+                                min="0000-01-01" //set the min allowed date
+                            />
+                            {/* button to trigger age calculation function */}
+                            <Button variant='success' onClick={calculateAge}>Calculate</Button>
+                        </Stack>
                     </div>
                 </div>
-                <div className='fw-bold'>
-                    {/* Display error message if exists */}
-                    {error && <p className="errormsg">{error}</p>}
+                <div  className=' fs-4 text-center p-3 fw-bold mx-auto'>
+                    <div className='fw-bold mx-auto'>
+                        {/* Display error message if exists */}
+                        {error && <p className="errormsg">{error}</p>}
 
-                    {/* structure to display the result s */}
+                        {/* structure to display the result s */}
 
-                    {age && (
-                        <div className="container fs-4 text-center p-3 fw-bold">
-                            <div className='row '>
-                                <div className="col">
+                        {/*age && (
+
+                            <Stack gap={3} direction='horizontal' className=' mx-auto'>
+                                <Stack gap='2' direction='horizontal' className='mx-auto'>
                                     <p id="year" className="">{age.years}</p>
                                     <p>Years</p>
-                                </div>
-                                <div className="col">
-                                    <p id="month">{age.months}</p>
-                                    <p>Months</p>
-                                </div>
-                                <div className="col">
-                                    <p id="day">{age.days}</p>
-                                    <p>Days</p>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                    {age && (
-                        <div className='container text-center p-3'>
-                            <div className='row'>
-                                <p>You are {age.years} years, {age.months} months, and {age.days} days old.</p>
-                            </div>
-                        </div>
-                    )}
-                </div>
+                                </Stack>
+                                <Stack gap='2' direction='horizontal' className='mx-auto'>
+                                <p id="month">{age.months}</p>
+                                <p>Months</p>
+                                </Stack>
+                                <Stack gap='2' direction='horizontal' className='mx-auto'>
+                                <p id="day">{age.days}</p>
+                                <p>Days</p>
+                                </Stack>
+                            </Stack>
 
+                        )*/}
+                        {age && (
+                            <div className='container fs-5 text-center p-3'>
+                                <div className='row'>
+                                    <p>You are {age.years} years, {age.months} months, and {age.days} days old.</p>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </div>
             </Stack>
         </div>
 

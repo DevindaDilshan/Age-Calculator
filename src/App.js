@@ -5,11 +5,9 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="">
-      <div className="">
-        <TopNav />
-        <AgeCalculator />
-      </div>
+    <div className=''>
+      <TopNav />
+      <AgeCalculator />
       <Footer />
     </div>
   );
